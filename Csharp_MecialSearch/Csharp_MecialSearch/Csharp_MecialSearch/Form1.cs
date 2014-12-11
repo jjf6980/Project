@@ -86,7 +86,9 @@ namespace Csharp_MecialSearch
             townBox.Items.Add("");
             townBox.SelectedIndex = 0;
             comboBoxState.SelectedIndex = 33;
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url + "OrgTypes");
+            string state = comboBoxState.SelectedItem.ToString();
+
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url + "OrgTypes" );
             HttpWebResponse res = (HttpWebResponse)req.GetResponse();
             XmlDocument xmldoc = new XmlDocument();
             xmldoc.Load(res.GetResponseStream());
@@ -102,8 +104,30 @@ namespace Csharp_MecialSearch
 
 
                 comboBox1.Items.Add(arr[0]);
-                           // MessageBox.Show();
+
             }
+            
+            string countything = url + "Counties?state=" + state;
+            MessageBox.Show(countything);
+            req = (HttpWebRequest)WebRequest.Create(countything);
+            res = (HttpWebResponse)req.GetResponse();
+            XmlDocument xmldoc2 = new XmlDocument();
+            xmldoc2.Load(res.GetResponseStream());
+
+            XmlNodeList countyList = xmldoc2.GetElementsByTagName("row");
+            for (int i = 0; i < countyList.Count; i++)
+            {
+
+                string[] arr = new string[1];
+                arr[0] = countyList[i].SelectSingleNode("CountyName").InnerText;
+
+
+
+
+                countyBox.Items.Add(arr[0]);
+
+            }
+
 
         }
     }
