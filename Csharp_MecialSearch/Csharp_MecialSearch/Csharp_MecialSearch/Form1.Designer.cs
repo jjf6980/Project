@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
+            this.townBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.countyBox = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -45,10 +48,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.countyBox = new System.Windows.Forms.ComboBox();
-            this.zipBox = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.townBox = new System.Windows.Forms.ComboBox();
+            this.zipBox = new System.Windows.Forms.TextBox();
             this.groupBoxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -56,9 +56,9 @@
             // 
             // groupBoxSearch
             // 
+            this.groupBoxSearch.Controls.Add(this.zipBox);
             this.groupBoxSearch.Controls.Add(this.townBox);
             this.groupBoxSearch.Controls.Add(this.label6);
-            this.groupBoxSearch.Controls.Add(this.zipBox);
             this.groupBoxSearch.Controls.Add(this.countyBox);
             this.groupBoxSearch.Controls.Add(this.comboBox1);
             this.groupBoxSearch.Controls.Add(this.buttonClear);
@@ -77,6 +77,31 @@
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Search Criteria ";
             // 
+            // townBox
+            // 
+            this.townBox.FormattingEnabled = true;
+            this.townBox.Location = new System.Drawing.Point(62, 133);
+            this.townBox.Name = "townBox";
+            this.townBox.Size = new System.Drawing.Size(121, 21);
+            this.townBox.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 141);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Town";
+            // 
+            // countyBox
+            // 
+            this.countyBox.FormattingEnabled = true;
+            this.countyBox.Location = new System.Drawing.Point(62, 160);
+            this.countyBox.Name = "countyBox";
+            this.countyBox.Size = new System.Drawing.Size(121, 21);
+            this.countyBox.TabIndex = 9;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -84,6 +109,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 8;
+            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
             // 
             // buttonClear
             // 
@@ -185,6 +211,7 @@
             this.comboBoxState.Name = "comboBoxState";
             this.comboBoxState.Size = new System.Drawing.Size(50, 21);
             this.comboBoxState.TabIndex = 3;
+            this.comboBoxState.SelectionChangeCommitted += new System.EventHandler(this.comboBoxState_SelectionChangeCommitted);
             // 
             // label3
             // 
@@ -227,6 +254,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(401, 281);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // menuStrip1
             // 
@@ -253,38 +281,12 @@
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
-            // countyBox
-            // 
-            this.countyBox.FormattingEnabled = true;
-            this.countyBox.Location = new System.Drawing.Point(62, 160);
-            this.countyBox.Name = "countyBox";
-            this.countyBox.Size = new System.Drawing.Size(121, 21);
-            this.countyBox.TabIndex = 9;
-            // 
             // zipBox
             // 
-            this.zipBox.FormattingEnabled = true;
             this.zipBox.Location = new System.Drawing.Point(62, 190);
             this.zipBox.Name = "zipBox";
-            this.zipBox.Size = new System.Drawing.Size(121, 21);
-            this.zipBox.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 141);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Town";
-            // 
-            // townBox
-            // 
-            this.townBox.FormattingEnabled = true;
-            this.townBox.Location = new System.Drawing.Point(62, 133);
-            this.townBox.Name = "townBox";
-            this.townBox.Size = new System.Drawing.Size(121, 21);
-            this.townBox.TabIndex = 12;
+            this.zipBox.Size = new System.Drawing.Size(100, 20);
+            this.zipBox.TabIndex = 13;
             // 
             // Form1
             // 
@@ -325,10 +327,10 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox zipBox;
         private System.Windows.Forms.ComboBox countyBox;
         private System.Windows.Forms.ComboBox townBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox zipBox;
     }
 }
 
