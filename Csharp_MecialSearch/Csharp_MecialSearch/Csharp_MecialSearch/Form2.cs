@@ -275,6 +275,46 @@ namespace Csharp_MecialSearch
 
                 xmlFile.Close();
             }
+            if (tabControl1.SelectedTab == tabControl1.TabPages["people"])
+            {
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url + orgID + @"/Locations");
+                HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.Load(res.GetResponseStream());
+                XmlNodeList elemList = xmldoc.GetElementsByTagName("location");
+                for (int i = 0; i < elemList.Count; i++)
+                {
+                    string[] arr = new string[1];
+                    arr[0] = elemList[i].SelectSingleNode("address1").InnerText;
+
+                    addressBox.Items.Add(arr[0]);
+                }
+                addressBox.SelectedIndex = 0;
+            }
+            {
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url + orgID + @"/Locations");
+                HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+                XmlDocument xmldoc = new XmlDocument();
+                XmlReader xmlFile = XmlReader.Create(url + orgID + @"/People");
+                DataSet dataSet = new DataSet();
+                
+                //MessageBox.Show(url+"Organizations?type="+orgType+@"&town="+@"&state="+state+@"&zip="+zip+@"&county="+county);
+                //read the xml into dataset
+                dataSet.ReadXml(xmlFile);
+
+
+
+                    //Pass row table to dataGrid the datasource
+                peopleGrid.DataSource = dataSet.Tables["person"];
+
+                        peopleGrid.Columns[0].Visible = false;
+                // OR
+                //dataGridView1.Columns["OrganizationID"].Visible = false;
+
+
+                xmlFile.Close();
+            }
+
         }
 
         private void locationBox_SelectedIndexChanged(object sender, EventArgs e)

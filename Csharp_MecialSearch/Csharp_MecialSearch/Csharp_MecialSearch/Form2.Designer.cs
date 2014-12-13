@@ -43,23 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.location = new System.Windows.Forms.TabPage();
-            this.locationBox = new System.Windows.Forms.ComboBox();
-            this.treatment = new System.Windows.Forms.TabPage();
-            this.training = new System.Windows.Forms.TabPage();
-            this.facilities = new System.Windows.Forms.TabPage();
-            this.equipment = new System.Windows.Forms.TabPage();
-            this.physician = new System.Windows.Forms.TabPage();
-            this.people = new System.Windows.Forms.TabPage();
-            this.locAddress1 = new System.Windows.Forms.Label();
-            this.locAddress2 = new System.Windows.Forms.Label();
-            this.locCity = new System.Windows.Forms.Label();
-            this.locState = new System.Windows.Forms.Label();
-            this.locZip = new System.Windows.Forms.Label();
-            this.locPhone = new System.Windows.Forms.Label();
-            this.locTTYPhone = new System.Windows.Forms.Label();
-            this.locLat = new System.Windows.Forms.Label();
-            this.locLong = new System.Windows.Forms.Label();
-            this.locFax = new System.Windows.Forms.Label();
             this.locFaxChange = new System.Windows.Forms.Label();
             this.locLongChange = new System.Windows.Forms.Label();
             this.locLatChange = new System.Windows.Forms.Label();
@@ -70,24 +53,45 @@
             this.locCityChange = new System.Windows.Forms.Label();
             this.locAddress2Change = new System.Windows.Forms.Label();
             this.locAddress1Change = new System.Windows.Forms.Label();
+            this.locFax = new System.Windows.Forms.Label();
+            this.locLong = new System.Windows.Forms.Label();
+            this.locLat = new System.Windows.Forms.Label();
+            this.locTTYPhone = new System.Windows.Forms.Label();
+            this.locPhone = new System.Windows.Forms.Label();
+            this.locZip = new System.Windows.Forms.Label();
+            this.locState = new System.Windows.Forms.Label();
+            this.locCity = new System.Windows.Forms.Label();
+            this.locAddress2 = new System.Windows.Forms.Label();
+            this.locAddress1 = new System.Windows.Forms.Label();
+            this.locationBox = new System.Windows.Forms.ComboBox();
+            this.treatment = new System.Windows.Forms.TabPage();
             this.treatGrid = new System.Windows.Forms.DataGridView();
+            this.training = new System.Windows.Forms.TabPage();
             this.trainGrid = new System.Windows.Forms.DataGridView();
+            this.facilities = new System.Windows.Forms.TabPage();
             this.facGrid = new System.Windows.Forms.DataGridView();
+            this.equipment = new System.Windows.Forms.TabPage();
             this.equipGrid = new System.Windows.Forms.DataGridView();
+            this.physician = new System.Windows.Forms.TabPage();
             this.phyGrid = new System.Windows.Forms.DataGridView();
+            this.people = new System.Windows.Forms.TabPage();
+            this.addressBox = new System.Windows.Forms.ComboBox();
+            this.peopleGrid = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.general.SuspendLayout();
             this.location.SuspendLayout();
             this.treatment.SuspendLayout();
-            this.training.SuspendLayout();
-            this.facilities.SuspendLayout();
-            this.equipment.SuspendLayout();
-            this.physician.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treatGrid)).BeginInit();
+            this.training.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trainGrid)).BeginInit();
+            this.facilities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facGrid)).BeginInit();
+            this.equipment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.equipGrid)).BeginInit();
+            this.physician.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phyGrid)).BeginInit();
+            this.people.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.peopleGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -262,170 +266,6 @@
             this.location.Text = "Location";
             this.location.UseVisualStyleBackColor = true;
             // 
-            // locationBox
-            // 
-            this.locationBox.FormattingEnabled = true;
-            this.locationBox.Location = new System.Drawing.Point(395, 19);
-            this.locationBox.Name = "locationBox";
-            this.locationBox.Size = new System.Drawing.Size(121, 21);
-            this.locationBox.TabIndex = 0;
-            this.locationBox.SelectedIndexChanged += new System.EventHandler(this.locationBox_SelectedIndexChanged);
-            // 
-            // treatment
-            // 
-            this.treatment.Controls.Add(this.treatGrid);
-            this.treatment.Location = new System.Drawing.Point(4, 22);
-            this.treatment.Name = "treatment";
-            this.treatment.Padding = new System.Windows.Forms.Padding(3);
-            this.treatment.Size = new System.Drawing.Size(567, 276);
-            this.treatment.TabIndex = 2;
-            this.treatment.Text = "Treatment";
-            this.treatment.UseVisualStyleBackColor = true;
-            // 
-            // training
-            // 
-            this.training.Controls.Add(this.trainGrid);
-            this.training.Location = new System.Drawing.Point(4, 22);
-            this.training.Name = "training";
-            this.training.Padding = new System.Windows.Forms.Padding(3);
-            this.training.Size = new System.Drawing.Size(567, 276);
-            this.training.TabIndex = 3;
-            this.training.Text = "Training";
-            this.training.UseVisualStyleBackColor = true;
-            // 
-            // facilities
-            // 
-            this.facilities.Controls.Add(this.facGrid);
-            this.facilities.Location = new System.Drawing.Point(4, 22);
-            this.facilities.Name = "facilities";
-            this.facilities.Padding = new System.Windows.Forms.Padding(3);
-            this.facilities.Size = new System.Drawing.Size(567, 276);
-            this.facilities.TabIndex = 4;
-            this.facilities.Text = "Facilities";
-            this.facilities.UseVisualStyleBackColor = true;
-            // 
-            // equipment
-            // 
-            this.equipment.Controls.Add(this.equipGrid);
-            this.equipment.Location = new System.Drawing.Point(4, 22);
-            this.equipment.Name = "equipment";
-            this.equipment.Padding = new System.Windows.Forms.Padding(3);
-            this.equipment.Size = new System.Drawing.Size(567, 276);
-            this.equipment.TabIndex = 5;
-            this.equipment.Text = "Equipment";
-            this.equipment.UseVisualStyleBackColor = true;
-            // 
-            // physician
-            // 
-            this.physician.Controls.Add(this.phyGrid);
-            this.physician.Location = new System.Drawing.Point(4, 22);
-            this.physician.Name = "physician";
-            this.physician.Padding = new System.Windows.Forms.Padding(3);
-            this.physician.Size = new System.Drawing.Size(567, 276);
-            this.physician.TabIndex = 6;
-            this.physician.Text = "Physician";
-            this.physician.UseVisualStyleBackColor = true;
-            // 
-            // people
-            // 
-            this.people.Location = new System.Drawing.Point(4, 22);
-            this.people.Name = "people";
-            this.people.Padding = new System.Windows.Forms.Padding(3);
-            this.people.Size = new System.Drawing.Size(567, 276);
-            this.people.TabIndex = 7;
-            this.people.Text = "People";
-            this.people.UseVisualStyleBackColor = true;
-            // 
-            // locAddress1
-            // 
-            this.locAddress1.AutoSize = true;
-            this.locAddress1.Location = new System.Drawing.Point(262, 47);
-            this.locAddress1.Name = "locAddress1";
-            this.locAddress1.Size = new System.Drawing.Size(54, 13);
-            this.locAddress1.TabIndex = 1;
-            this.locAddress1.Text = "Address1:";
-            // 
-            // locAddress2
-            // 
-            this.locAddress2.AutoSize = true;
-            this.locAddress2.Location = new System.Drawing.Point(262, 60);
-            this.locAddress2.Name = "locAddress2";
-            this.locAddress2.Size = new System.Drawing.Size(54, 13);
-            this.locAddress2.TabIndex = 2;
-            this.locAddress2.Text = "Address2:";
-            // 
-            // locCity
-            // 
-            this.locCity.AutoSize = true;
-            this.locCity.Location = new System.Drawing.Point(262, 73);
-            this.locCity.Name = "locCity";
-            this.locCity.Size = new System.Drawing.Size(27, 13);
-            this.locCity.TabIndex = 3;
-            this.locCity.Text = "City:";
-            // 
-            // locState
-            // 
-            this.locState.AutoSize = true;
-            this.locState.Location = new System.Drawing.Point(262, 86);
-            this.locState.Name = "locState";
-            this.locState.Size = new System.Drawing.Size(35, 13);
-            this.locState.TabIndex = 4;
-            this.locState.Text = "State:";
-            // 
-            // locZip
-            // 
-            this.locZip.AutoSize = true;
-            this.locZip.Location = new System.Drawing.Point(262, 99);
-            this.locZip.Name = "locZip";
-            this.locZip.Size = new System.Drawing.Size(53, 13);
-            this.locZip.TabIndex = 5;
-            this.locZip.Text = "Zip Code:";
-            // 
-            // locPhone
-            // 
-            this.locPhone.AutoSize = true;
-            this.locPhone.Location = new System.Drawing.Point(262, 112);
-            this.locPhone.Name = "locPhone";
-            this.locPhone.Size = new System.Drawing.Size(41, 13);
-            this.locPhone.TabIndex = 6;
-            this.locPhone.Text = "Phone:";
-            // 
-            // locTTYPhone
-            // 
-            this.locTTYPhone.AutoSize = true;
-            this.locTTYPhone.Location = new System.Drawing.Point(262, 125);
-            this.locTTYPhone.Name = "locTTYPhone";
-            this.locTTYPhone.Size = new System.Drawing.Size(31, 13);
-            this.locTTYPhone.TabIndex = 7;
-            this.locTTYPhone.Text = "TTY:";
-            // 
-            // locLat
-            // 
-            this.locLat.AutoSize = true;
-            this.locLat.Location = new System.Drawing.Point(262, 151);
-            this.locLat.Name = "locLat";
-            this.locLat.Size = new System.Drawing.Size(48, 13);
-            this.locLat.TabIndex = 8;
-            this.locLat.Text = "Latitude:";
-            // 
-            // locLong
-            // 
-            this.locLong.AutoSize = true;
-            this.locLong.Location = new System.Drawing.Point(262, 164);
-            this.locLong.Name = "locLong";
-            this.locLong.Size = new System.Drawing.Size(57, 13);
-            this.locLong.TabIndex = 9;
-            this.locLong.Text = "Longitude:";
-            // 
-            // locFax
-            // 
-            this.locFax.AutoSize = true;
-            this.locFax.Location = new System.Drawing.Point(262, 138);
-            this.locFax.Name = "locFax";
-            this.locFax.Size = new System.Drawing.Size(27, 13);
-            this.locFax.TabIndex = 10;
-            this.locFax.Text = "Fax:";
-            // 
             // locFaxChange
             // 
             this.locFaxChange.AutoSize = true;
@@ -516,6 +356,116 @@
             this.locAddress1Change.TabIndex = 11;
             this.locAddress1Change.Text = "Address1:";
             // 
+            // locFax
+            // 
+            this.locFax.AutoSize = true;
+            this.locFax.Location = new System.Drawing.Point(262, 138);
+            this.locFax.Name = "locFax";
+            this.locFax.Size = new System.Drawing.Size(27, 13);
+            this.locFax.TabIndex = 10;
+            this.locFax.Text = "Fax:";
+            // 
+            // locLong
+            // 
+            this.locLong.AutoSize = true;
+            this.locLong.Location = new System.Drawing.Point(262, 164);
+            this.locLong.Name = "locLong";
+            this.locLong.Size = new System.Drawing.Size(57, 13);
+            this.locLong.TabIndex = 9;
+            this.locLong.Text = "Longitude:";
+            // 
+            // locLat
+            // 
+            this.locLat.AutoSize = true;
+            this.locLat.Location = new System.Drawing.Point(262, 151);
+            this.locLat.Name = "locLat";
+            this.locLat.Size = new System.Drawing.Size(48, 13);
+            this.locLat.TabIndex = 8;
+            this.locLat.Text = "Latitude:";
+            // 
+            // locTTYPhone
+            // 
+            this.locTTYPhone.AutoSize = true;
+            this.locTTYPhone.Location = new System.Drawing.Point(262, 125);
+            this.locTTYPhone.Name = "locTTYPhone";
+            this.locTTYPhone.Size = new System.Drawing.Size(31, 13);
+            this.locTTYPhone.TabIndex = 7;
+            this.locTTYPhone.Text = "TTY:";
+            // 
+            // locPhone
+            // 
+            this.locPhone.AutoSize = true;
+            this.locPhone.Location = new System.Drawing.Point(262, 112);
+            this.locPhone.Name = "locPhone";
+            this.locPhone.Size = new System.Drawing.Size(41, 13);
+            this.locPhone.TabIndex = 6;
+            this.locPhone.Text = "Phone:";
+            // 
+            // locZip
+            // 
+            this.locZip.AutoSize = true;
+            this.locZip.Location = new System.Drawing.Point(262, 99);
+            this.locZip.Name = "locZip";
+            this.locZip.Size = new System.Drawing.Size(53, 13);
+            this.locZip.TabIndex = 5;
+            this.locZip.Text = "Zip Code:";
+            // 
+            // locState
+            // 
+            this.locState.AutoSize = true;
+            this.locState.Location = new System.Drawing.Point(262, 86);
+            this.locState.Name = "locState";
+            this.locState.Size = new System.Drawing.Size(35, 13);
+            this.locState.TabIndex = 4;
+            this.locState.Text = "State:";
+            // 
+            // locCity
+            // 
+            this.locCity.AutoSize = true;
+            this.locCity.Location = new System.Drawing.Point(262, 73);
+            this.locCity.Name = "locCity";
+            this.locCity.Size = new System.Drawing.Size(27, 13);
+            this.locCity.TabIndex = 3;
+            this.locCity.Text = "City:";
+            // 
+            // locAddress2
+            // 
+            this.locAddress2.AutoSize = true;
+            this.locAddress2.Location = new System.Drawing.Point(262, 60);
+            this.locAddress2.Name = "locAddress2";
+            this.locAddress2.Size = new System.Drawing.Size(54, 13);
+            this.locAddress2.TabIndex = 2;
+            this.locAddress2.Text = "Address2:";
+            // 
+            // locAddress1
+            // 
+            this.locAddress1.AutoSize = true;
+            this.locAddress1.Location = new System.Drawing.Point(262, 47);
+            this.locAddress1.Name = "locAddress1";
+            this.locAddress1.Size = new System.Drawing.Size(54, 13);
+            this.locAddress1.TabIndex = 1;
+            this.locAddress1.Text = "Address1:";
+            // 
+            // locationBox
+            // 
+            this.locationBox.FormattingEnabled = true;
+            this.locationBox.Location = new System.Drawing.Point(395, 19);
+            this.locationBox.Name = "locationBox";
+            this.locationBox.Size = new System.Drawing.Size(121, 21);
+            this.locationBox.TabIndex = 0;
+            this.locationBox.SelectedIndexChanged += new System.EventHandler(this.locationBox_SelectedIndexChanged);
+            // 
+            // treatment
+            // 
+            this.treatment.Controls.Add(this.treatGrid);
+            this.treatment.Location = new System.Drawing.Point(4, 22);
+            this.treatment.Name = "treatment";
+            this.treatment.Padding = new System.Windows.Forms.Padding(3);
+            this.treatment.Size = new System.Drawing.Size(567, 276);
+            this.treatment.TabIndex = 2;
+            this.treatment.Text = "Treatment";
+            this.treatment.UseVisualStyleBackColor = true;
+            // 
             // treatGrid
             // 
             this.treatGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -523,6 +473,17 @@
             this.treatGrid.Name = "treatGrid";
             this.treatGrid.Size = new System.Drawing.Size(561, 270);
             this.treatGrid.TabIndex = 0;
+            // 
+            // training
+            // 
+            this.training.Controls.Add(this.trainGrid);
+            this.training.Location = new System.Drawing.Point(4, 22);
+            this.training.Name = "training";
+            this.training.Padding = new System.Windows.Forms.Padding(3);
+            this.training.Size = new System.Drawing.Size(567, 276);
+            this.training.TabIndex = 3;
+            this.training.Text = "Training";
+            this.training.UseVisualStyleBackColor = true;
             // 
             // trainGrid
             // 
@@ -532,6 +493,17 @@
             this.trainGrid.Size = new System.Drawing.Size(561, 270);
             this.trainGrid.TabIndex = 1;
             // 
+            // facilities
+            // 
+            this.facilities.Controls.Add(this.facGrid);
+            this.facilities.Location = new System.Drawing.Point(4, 22);
+            this.facilities.Name = "facilities";
+            this.facilities.Padding = new System.Windows.Forms.Padding(3);
+            this.facilities.Size = new System.Drawing.Size(567, 276);
+            this.facilities.TabIndex = 4;
+            this.facilities.Text = "Facilities";
+            this.facilities.UseVisualStyleBackColor = true;
+            // 
             // facGrid
             // 
             this.facGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -539,6 +511,17 @@
             this.facGrid.Name = "facGrid";
             this.facGrid.Size = new System.Drawing.Size(561, 270);
             this.facGrid.TabIndex = 1;
+            // 
+            // equipment
+            // 
+            this.equipment.Controls.Add(this.equipGrid);
+            this.equipment.Location = new System.Drawing.Point(4, 22);
+            this.equipment.Name = "equipment";
+            this.equipment.Padding = new System.Windows.Forms.Padding(3);
+            this.equipment.Size = new System.Drawing.Size(567, 276);
+            this.equipment.TabIndex = 5;
+            this.equipment.Text = "Equipment";
+            this.equipment.UseVisualStyleBackColor = true;
             // 
             // equipGrid
             // 
@@ -548,6 +531,17 @@
             this.equipGrid.Size = new System.Drawing.Size(561, 270);
             this.equipGrid.TabIndex = 1;
             // 
+            // physician
+            // 
+            this.physician.Controls.Add(this.phyGrid);
+            this.physician.Location = new System.Drawing.Point(4, 22);
+            this.physician.Name = "physician";
+            this.physician.Padding = new System.Windows.Forms.Padding(3);
+            this.physician.Size = new System.Drawing.Size(567, 276);
+            this.physician.TabIndex = 6;
+            this.physician.Text = "Physician";
+            this.physician.UseVisualStyleBackColor = true;
+            // 
             // phyGrid
             // 
             this.phyGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -555,6 +549,34 @@
             this.phyGrid.Name = "phyGrid";
             this.phyGrid.Size = new System.Drawing.Size(561, 270);
             this.phyGrid.TabIndex = 1;
+            // 
+            // people
+            // 
+            this.people.Controls.Add(this.peopleGrid);
+            this.people.Controls.Add(this.addressBox);
+            this.people.Location = new System.Drawing.Point(4, 22);
+            this.people.Name = "people";
+            this.people.Padding = new System.Windows.Forms.Padding(3);
+            this.people.Size = new System.Drawing.Size(567, 276);
+            this.people.TabIndex = 7;
+            this.people.Text = "People";
+            this.people.UseVisualStyleBackColor = true;
+            // 
+            // addressBox
+            // 
+            this.addressBox.FormattingEnabled = true;
+            this.addressBox.Location = new System.Drawing.Point(26, 27);
+            this.addressBox.Name = "addressBox";
+            this.addressBox.Size = new System.Drawing.Size(121, 21);
+            this.addressBox.TabIndex = 0;
+            // 
+            // peopleGrid
+            // 
+            this.peopleGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.peopleGrid.Location = new System.Drawing.Point(0, 79);
+            this.peopleGrid.Name = "peopleGrid";
+            this.peopleGrid.Size = new System.Drawing.Size(567, 197);
+            this.peopleGrid.TabIndex = 1;
             // 
             // Form2
             // 
@@ -570,15 +592,17 @@
             this.location.ResumeLayout(false);
             this.location.PerformLayout();
             this.treatment.ResumeLayout(false);
-            this.training.ResumeLayout(false);
-            this.facilities.ResumeLayout(false);
-            this.equipment.ResumeLayout(false);
-            this.physician.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treatGrid)).EndInit();
+            this.training.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trainGrid)).EndInit();
+            this.facilities.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.facGrid)).EndInit();
+            this.equipment.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.equipGrid)).EndInit();
+            this.physician.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.phyGrid)).EndInit();
+            this.people.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.peopleGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -632,5 +656,7 @@
         private System.Windows.Forms.DataGridView facGrid;
         private System.Windows.Forms.DataGridView equipGrid;
         private System.Windows.Forms.DataGridView phyGrid;
+        private System.Windows.Forms.DataGridView peopleGrid;
+        private System.Windows.Forms.ComboBox addressBox;
     }
 }
