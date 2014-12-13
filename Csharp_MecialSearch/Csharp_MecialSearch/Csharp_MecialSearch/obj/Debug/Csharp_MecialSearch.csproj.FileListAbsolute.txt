@@ -34,3 +34,4 @@ C:\Users\Student\Desktop\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_
 C:\Users\Student\Desktop\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\obj\Debug\Csharp_MecialSearch.csproj.GenerateResource.Cache
 C:\Users\Student\Desktop\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\bin\Debug\Csharp_MecialSearch.exe
 C:\Users\Student\Desktop\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\bin\Debug\Csharp_MecialSearch.pdb
+C:\Users\Student\Desktop\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\obj\Debug\Csharp_MecialSearch.Form2.resources

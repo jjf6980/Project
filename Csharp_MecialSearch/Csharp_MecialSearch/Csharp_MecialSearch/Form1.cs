@@ -223,18 +223,22 @@ namespace Csharp_MecialSearch
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // MessageBox.Show("Clicked");
-            // which one am I clicking
+
             int col = e.ColumnIndex;
             int row = e.RowIndex;
 
             int orgId = Convert.ToInt32(dataGridView1[0, row].Value);
 
             string tabs = "getTabs?orgId" + orgId;
-            MessageBox.Show(tabs);
+
 
             string criteria = orgId + "/general";
-            MessageBox.Show(criteria);
+
+
+
+            Form2 info = new Form2(orgId);
+            info.ShowDialog();
+            
         }
     }
 }
