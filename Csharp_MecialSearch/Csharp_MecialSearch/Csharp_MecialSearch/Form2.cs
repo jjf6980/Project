@@ -21,6 +21,7 @@ namespace Csharp_MecialSearch
             orgID = id;
             InitializeComponent();
             populateGen(id);
+            loadshit();
 
             
             
@@ -63,8 +64,287 @@ namespace Csharp_MecialSearch
             }
         }
 
+        private void loadshit()
+        {
 
 
+                //if (tabControl1.SelectedTab == tabControl1.TabPages["location"])
+                {
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url + orgID + @"/Locations");
+                    HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+                    XmlDocument xmldoc = new XmlDocument();
+                    xmldoc.Load(res.GetResponseStream());
+
+                    XmlNodeList elemList = xmldoc.GetElementsByTagName("location");
+                    for (int i = 0; i < elemList.Count; i++)
+                    {
+                        string[] arr = new string[1];
+                        arr[0] = elemList[i].SelectSingleNode("type").InnerText;
+
+                        locationBox.Items.Add(arr[0]);
+                    }
+                    locationBox.SelectedIndex = 0;
+
+
+                    int dumb = locationBox.SelectedIndex;
+                    // MessageBox.Show(" " + dumb);
+
+
+                    req = (HttpWebRequest)WebRequest.Create(url + orgID + @"/Locations");
+                    res = (HttpWebResponse)req.GetResponse();
+                    xmldoc = new XmlDocument();
+                    xmldoc.Load(res.GetResponseStream());
+
+                    XmlNode locList = xmldoc.GetElementsByTagName("location")[dumb];
+                    for (int i = 0; i < locList.ChildNodes.Count; i++)
+                    {
+                        string[] arr = new string[10];
+                        arr[0] = locList.SelectSingleNode("address1").InnerText;
+                        arr[0] = locList.SelectSingleNode("address1").InnerText;
+                        arr[1] = locList.SelectSingleNode("address2").InnerText;
+                        arr[2] = locList.SelectSingleNode("city").InnerText;
+                        arr[3] = locList.SelectSingleNode("state").InnerText;
+                        arr[4] = locList.SelectSingleNode("zip").InnerText;
+                        arr[5] = locList.SelectSingleNode("phone").InnerText;
+                        if (locList.SelectSingleNode("ttyphone") == null)
+                        {
+                            if (locList.SelectSingleNode("fax") == null)
+                            {
+                                if (locList.SelectSingleNode("latitude") == null)
+                                {
+                                    if (locList.SelectSingleNode("longitude") == null)
+                                    {
+                                        break;
+                                    }
+
+                                }
+                                arr[8] = locList.SelectSingleNode("latitude").InnerText;
+                                arr[9] = locList.SelectSingleNode("longitude").InnerText;
+                            }
+                            else
+                            {
+                                arr[7] = locList.SelectSingleNode("fax").InnerText;
+                                if (locList.SelectSingleNode("latitude") == null)
+                                {
+                                    if (locList.SelectSingleNode("longitude") == null)
+                                    {
+                                        break;
+                                    }
+
+                                }
+                                else
+                                {
+                                    arr[8] = locList.SelectSingleNode("latitude").InnerText;
+                                    if (locList.SelectSingleNode("longitude") == null)
+                                    {
+                                        locAddress2Change.Text = (arr[1]);
+                                        locAddress1Change.Text = (arr[0]);
+                                        locCityChange.Text = (arr[2]);
+                                        locStateChange.Text = (arr[3]);
+                                        locZipChange.Text = (arr[4]);
+                                        locPhoneChange.Text = (arr[5]);
+                                    }
+                                    else
+                                    {
+                                        arr[9] = locList.SelectSingleNode("longitude").InnerText;
+                                    }
+                                }
+
+                                //arr[9] = locList[i].SelectSingleNode("longitutde").InnerText;
+                            }
+
+                        }
+                        else
+                        {
+                            arr[6] = locList.SelectSingleNode("ttyphone").InnerText;
+                            arr[7] = locList.SelectSingleNode("fax").InnerText;
+                            arr[8] = locList.SelectSingleNode("latitude").InnerText;
+                            arr[9] = locList.SelectSingleNode("longitutde").InnerText;
+                        }
+                        locAddress2Change.Text = (arr[1]);
+                        locAddress1Change.Text = (arr[0]);
+                        locCityChange.Text = (arr[2]);
+                        locStateChange.Text = (arr[3]);
+                        locZipChange.Text = (arr[4]);
+                        locPhoneChange.Text = (arr[5]);
+                        locTTYChange.Text = (arr[6]);
+                        locFaxChange.Text = (arr[7]);
+                        locLatChange.Text = (arr[8]);
+                        locLongChange.Text = (arr[9]);
+
+
+                    }
+
+
+
+                }
+                //if (tabControl1.SelectedTab == tabControl1.TabPages["treatment"])
+                try
+                {
+                    XmlReader xmlFile = XmlReader.Create(url + orgID + @"/Treatments");
+                    DataSet dataSet = new DataSet();
+                    //MessageBox.Show(url+"Organizations?type="+orgType+@"&town="+@"&state="+state+@"&zip="+zip+@"&county="+county);
+                    //read the xml into dataset
+                    dataSet.ReadXml(xmlFile);
+
+                    //Pass row table to dataGrid the datasource
+                    treatGrid.DataSource = dataSet.Tables["treatment"];
+
+                    treatGrid.Columns[0].Visible = false;
+                    // OR
+                    //dataGridView1.Columns["OrganizationID"].Visible = false;
+
+
+                    xmlFile.Close();
+                }
+                catch (ArgumentOutOfRangeException are)
+                {
+                    tabControl1.TabPages.Remove(treatment);
+                }
+                //if (tabControl1.SelectedTab == tabControl1.TabPages["training"])
+                try 
+                {
+                    XmlReader xmlFile = XmlReader.Create(url + orgID + @"/Training");
+                    DataSet dataSet = new DataSet();
+                    //MessageBox.Show(url+"Organizations?type="+orgType+@"&town="+@"&state="+state+@"&zip="+zip+@"&county="+county);
+                    //read the xml into dataset
+                    dataSet.ReadXml(xmlFile);
+
+                    //Pass row table to dataGrid the datasource
+                    trainGrid.DataSource = dataSet.Tables["training"];
+
+                    trainGrid.Columns[0].Visible = false;
+                    // OR
+                    //dataGridView1.Columns["OrganizationID"].Visible = false;
+
+
+                    xmlFile.Close();
+                }
+                catch (ArgumentOutOfRangeException are)
+                {
+                    tabControl1.TabPages.Remove(training);
+                }
+                //if (tabControl1.SelectedTab == tabControl1.TabPages["facilities"])
+                try
+                {
+
+                    XmlReader xmlFile = XmlReader.Create(url + orgID + @"/Facilities");
+                    DataSet dataSet = new DataSet();
+                    //MessageBox.Show(url+"Organizations?type="+orgType+@"&town="+@"&state="+state+@"&zip="+zip+@"&county="+county);
+                    //read the xml into dataset
+                    dataSet.ReadXml(xmlFile);
+
+                    //Pass row table to dataGrid the datasource
+                    facGrid.DataSource = dataSet.Tables["facility"];
+
+                    facGrid.Columns[0].Visible = false;
+                    // OR
+                    //dataGridView1.Columns["OrganizationID"].Visible = false;
+
+
+                    xmlFile.Close();
+                }
+                catch (ArgumentOutOfRangeException are)
+                    {
+                        tabControl1.TabPages.Remove(equipment);
+                    }
+               // if (tabControl1.SelectedTab == tabControl1.TabPages["equipment"])
+                {
+                    try
+                    {
+                        XmlReader xmlFile = XmlReader.Create(url + orgID + @"/Equipment");
+                        DataSet dataSet = new DataSet();
+                        //MessageBox.Show(url+"Organizations?type="+orgType+@"&town="+@"&state="+state+@"&zip="+zip+@"&county="+county);
+                        //read the xml into dataset
+                        dataSet.ReadXml(xmlFile);
+
+                        //Pass row table to dataGrid the datasource
+                        equipGrid.DataSource = dataSet.Tables["equipment"];
+
+                        equipGrid.Columns[0].Visible = false;
+                        // OR
+                        //dataGridView1.Columns["OrganizationID"].Visible = false;
+                        xmlFile.Close();
+                        
+                    }
+                    catch (ArgumentOutOfRangeException are)
+                    {
+                        tabControl1.TabPages.Remove(equipment);
+                    }
+
+                }
+                //if (tabControl1.SelectedTab == tabControl1.TabPages["physician"])
+                try
+                {
+                    XmlReader xmlFile = XmlReader.Create(url + orgID + @"/Physicians");
+                    DataSet dataSet = new DataSet();
+                    //MessageBox.Show(url+"Organizations?type="+orgType+@"&town="+@"&state="+state+@"&zip="+zip+@"&county="+county);
+                    //read the xml into dataset
+                    dataSet.ReadXml(xmlFile);
+
+                    //Pass row table to dataGrid the datasource
+                    phyGrid.DataSource = dataSet.Tables["physician"];
+
+                    phyGrid.Columns[0].Visible = false;
+                    // OR
+                    //dataGridView1.Columns["OrganizationID"].Visible = false;
+
+
+                    xmlFile.Close();
+                }
+                catch (ArgumentOutOfRangeException are)
+                {
+                    tabControl1.TabPages.Remove(physician);
+                }
+                //if (tabControl1.SelectedTab == tabControl1.TabPages["people"])
+                {
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url + orgID + @"/Locations");
+                    HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+                    XmlDocument xmldoc = new XmlDocument();
+                    xmldoc.Load(res.GetResponseStream());
+                    XmlNodeList elemList = xmldoc.GetElementsByTagName("location");
+                    for (int i = 0; i < elemList.Count; i++)
+                    {
+                        string[] arr = new string[1];
+                        arr[0] = elemList[i].SelectSingleNode("address1").InnerText;
+
+                        addressBox.Items.Add(arr[0]);
+                    }
+                    addressBox.SelectedIndex = 0;
+                    try
+                    {
+                        req = (HttpWebRequest)WebRequest.Create(url + orgID + @"/People");
+                        res = (HttpWebResponse)req.GetResponse();
+                        xmldoc = new XmlDocument();
+                        XmlReader xmlFile = XmlReader.Create(url + orgID + @"/People");
+                        DataSet dataSet = new DataSet();
+
+                        //MessageBox.Show(url+"Organizations?type="+orgType+@"&town="+@"&state="+state+@"&zip="+zip+@"&county="+county);
+                        //read the xml into dataset
+                        //xmldoc.LoadXml("site address")
+                        dataSet.ReadXml(xmlFile);
+
+
+                        //Pass row table to dataGrid the datasource
+                        peopleGrid.DataSource = dataSet.Tables["person"];
+
+                        peopleGrid.Columns[0].Visible = false;
+                        // OR
+                        //dataGridView1.Columns["OrganizationID"].Visible = false;
+
+
+                        xmlFile.Close();
+                    }
+                    catch (ArgumentOutOfRangeException are)
+                    {
+                        tabControl1.TabPages.Remove(equipment);
+                    }
+                }
+
+            
+        }
+
+        /*
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -217,6 +497,7 @@ namespace Csharp_MecialSearch
             }
             if (tabControl1.SelectedTab == tabControl1.TabPages["facilities"])
             {
+                
                 XmlReader xmlFile = XmlReader.Create(url + orgID + @"/Facilities");
                 DataSet dataSet = new DataSet();
                 //MessageBox.Show(url+"Organizations?type="+orgType+@"&town="+@"&state="+state+@"&zip="+zip+@"&county="+county);
@@ -290,18 +571,18 @@ namespace Csharp_MecialSearch
                     addressBox.Items.Add(arr[0]);
                 }
                 addressBox.SelectedIndex = 0;
-            }
+            
             {
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url + orgID + @"/Locations");
-                HttpWebResponse res = (HttpWebResponse)req.GetResponse();
-                XmlDocument xmldoc = new XmlDocument();
+                 req = (HttpWebRequest)WebRequest.Create(url + orgID + @"/People");
+                 res = (HttpWebResponse)req.GetResponse();
+                 xmldoc = new XmlDocument();
                 XmlReader xmlFile = XmlReader.Create(url + orgID + @"/People");
                 DataSet dataSet = new DataSet();
                 
                 //MessageBox.Show(url+"Organizations?type="+orgType+@"&town="+@"&state="+state+@"&zip="+zip+@"&county="+county);
                 //read the xml into dataset
+                //xmldoc.LoadXml("site address")
                 dataSet.ReadXml(xmlFile);
-
 
 
                     //Pass row table to dataGrid the datasource
@@ -314,106 +595,104 @@ namespace Csharp_MecialSearch
 
                 xmlFile.Close();
             }
+            }
 
-        }
-
+        }*/
+        
         private void locationBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-   
-            int dumb = locationBox.SelectedIndex;
-           // MessageBox.Show(" " + dumb);
 
-            
+            int dumb = locationBox.SelectedIndex;
+            // MessageBox.Show(" " + dumb);
+
+
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url + orgID + @"/Locations");
             HttpWebResponse res = (HttpWebResponse)req.GetResponse();
             XmlDocument xmldoc = new XmlDocument();
             xmldoc.Load(res.GetResponseStream());
 
-                XmlNode locList = xmldoc.GetElementsByTagName("location")[dumb];
-                for (int i = 0; i < locList.ChildNodes.Count; i++)
+            XmlNode locList = xmldoc.GetElementsByTagName("location")[dumb];
+            for (int i = 0; i < locList.ChildNodes.Count; i++)
+            {
+                string[] arr = new string[10];
+                arr[0] = locList.SelectSingleNode("address1").InnerText;
+                arr[0] = locList.SelectSingleNode("address1").InnerText;
+                arr[1] = locList.SelectSingleNode("address2").InnerText;
+                arr[2] = locList.SelectSingleNode("city").InnerText;
+                arr[3] = locList.SelectSingleNode("state").InnerText;
+                arr[4] = locList.SelectSingleNode("zip").InnerText;
+                arr[5] = locList.SelectSingleNode("phone").InnerText;
+                if (locList.SelectSingleNode("ttyphone") == null)
                 {
-                    string[] arr = new string[10];
-                    arr[0] = locList.SelectSingleNode("address1").InnerText;
-                    arr[0] = locList.SelectSingleNode("address1").InnerText;
-                    arr[1] = locList.SelectSingleNode("address2").InnerText;
-                    arr[2] = locList.SelectSingleNode("city").InnerText;
-                    arr[3] = locList.SelectSingleNode("state").InnerText;
-                    arr[4] = locList.SelectSingleNode("zip").InnerText;
-                    arr[5] = locList.SelectSingleNode("phone").InnerText;
-                    if (locList.SelectSingleNode("ttyphone") == null)
+                    if (locList.SelectSingleNode("fax") == null)
                     {
-                        if (locList.SelectSingleNode("fax") == null)
+                        if (locList.SelectSingleNode("latitude") == null)
                         {
-                            if (locList.SelectSingleNode("latitude") == null)
+                            if (locList.SelectSingleNode("longitude") == null)
                             {
-                                if (locList.SelectSingleNode("longitude") == null)
-                                {
-                                    break;
-                                }
-
+                                break;
                             }
-                            arr[8] = locList.SelectSingleNode("latitude").InnerText;
-                            arr[9] = locList.SelectSingleNode("longitude").InnerText;
+
                         }
-                        else
-                        {
-                            arr[7] = locList.SelectSingleNode("fax").InnerText;
-                            if (locList.SelectSingleNode("latitude") == null)
-                            {
-                                if (locList.SelectSingleNode("longitude") == null)
-                                {
-                                    break;
-                                }
-
-                            }
-                            else
-                            {
-                                arr[8] = locList.SelectSingleNode("latitude").InnerText;
-                                if (locList.SelectSingleNode("longitude") == null)
-                                {
-                                    locAddress2Change.Text = (arr[1]);
-                                    locAddress1Change.Text = (arr[0]);
-                                    locCityChange.Text = (arr[2]);
-                                    locStateChange.Text = (arr[3]);
-                                    locZipChange.Text = (arr[4]);
-                                    locPhoneChange.Text = (arr[5]);
-                                }
-                                else
-                                {
-                                    arr[9] = locList.SelectSingleNode("longitude").InnerText;
-                                }
-                            }
-                                
-                            //arr[9] = locList[i].SelectSingleNode("longitutde").InnerText;
-                        }
-
+                        arr[8] = locList.SelectSingleNode("latitude").InnerText;
+                        arr[9] = locList.SelectSingleNode("longitude").InnerText;
                     }
                     else
                     {
-                        arr[6] = locList.SelectSingleNode("ttyphone").InnerText;
                         arr[7] = locList.SelectSingleNode("fax").InnerText;
-                        arr[8] = locList.SelectSingleNode("latitude").InnerText;
-                        arr[9] = locList.SelectSingleNode("longitutde").InnerText;
+                        if (locList.SelectSingleNode("latitude") == null)
+                        {
+                            if (locList.SelectSingleNode("longitude") == null)
+                            {
+                                break;
+                            }
+
+                        }
+                        else
+                        {
+                            arr[8] = locList.SelectSingleNode("latitude").InnerText;
+                            if (locList.SelectSingleNode("longitude") == null)
+                            {
+                                locAddress2Change.Text = (arr[1]);
+                                locAddress1Change.Text = (arr[0]);
+                                locCityChange.Text = (arr[2]);
+                                locStateChange.Text = (arr[3]);
+                                locZipChange.Text = (arr[4]);
+                                locPhoneChange.Text = (arr[5]);
+                            }
+                            else
+                            {
+                                arr[9] = locList.SelectSingleNode("longitude").InnerText;
+                            }
+                        }
+
+                        //arr[9] = locList[i].SelectSingleNode("longitutde").InnerText;
                     }
-                    locAddress2Change.Text = (arr[1]);
-                    locAddress1Change.Text = (arr[0]);
-                    locCityChange.Text = (arr[2]);
-                    locStateChange.Text = (arr[3]);
-                    locZipChange.Text = (arr[4]);
-                    locPhoneChange.Text = (arr[5]);
-                    locTTYChange.Text = (arr[6]);
-                    locFaxChange.Text = (arr[7]);
-                    locLatChange.Text = (arr[8]);
-                    locLongChange.Text = (arr[9]);
+
+                }
+                else
+                {
+                    arr[6] = locList.SelectSingleNode("ttyphone").InnerText;
+                    arr[7] = locList.SelectSingleNode("fax").InnerText;
+                    arr[8] = locList.SelectSingleNode("latitude").InnerText;
+                    arr[9] = locList.SelectSingleNode("longitutde").InnerText;
+                }
+                locAddress2Change.Text = (arr[1]);
+                locAddress1Change.Text = (arr[0]);
+                locCityChange.Text = (arr[2]);
+                locStateChange.Text = (arr[3]);
+                locZipChange.Text = (arr[4]);
+                locPhoneChange.Text = (arr[5]);
+                locTTYChange.Text = (arr[6]);
+                locFaxChange.Text = (arr[7]);
+                locLatChange.Text = (arr[8]);
+                locLongChange.Text = (arr[9]);
 
 
-               }
+            }
 
-                
-           
+
         }
-            
         }
-
     }
 

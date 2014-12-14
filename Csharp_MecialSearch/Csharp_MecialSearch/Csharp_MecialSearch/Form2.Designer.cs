@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.location = new System.Windows.Forms.TabPage();
+            this.map = new System.Windows.Forms.WebBrowser();
             this.locFaxChange = new System.Windows.Forms.Label();
             this.locLongChange = new System.Windows.Forms.Label();
             this.locLatChange = new System.Windows.Forms.Label();
@@ -75,8 +76,8 @@
             this.physician = new System.Windows.Forms.TabPage();
             this.phyGrid = new System.Windows.Forms.DataGridView();
             this.people = new System.Windows.Forms.TabPage();
-            this.addressBox = new System.Windows.Forms.ComboBox();
             this.peopleGrid = new System.Windows.Forms.DataGridView();
+            this.addressBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.general.SuspendLayout();
             this.location.SuspendLayout();
@@ -109,7 +110,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(575, 302);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // general
             // 
@@ -237,6 +237,7 @@
             // 
             // location
             // 
+            this.location.Controls.Add(this.map);
             this.location.Controls.Add(this.locFaxChange);
             this.location.Controls.Add(this.locLongChange);
             this.location.Controls.Add(this.locLatChange);
@@ -265,6 +266,14 @@
             this.location.TabIndex = 1;
             this.location.Text = "Location";
             this.location.UseVisualStyleBackColor = true;
+            // 
+            // map
+            // 
+            this.map.Location = new System.Drawing.Point(6, 6);
+            this.map.MinimumSize = new System.Drawing.Size(20, 20);
+            this.map.Name = "map";
+            this.map.Size = new System.Drawing.Size(250, 250);
+            this.map.TabIndex = 21;
             // 
             // locFaxChange
             // 
@@ -562,14 +571,6 @@
             this.people.Text = "People";
             this.people.UseVisualStyleBackColor = true;
             // 
-            // addressBox
-            // 
-            this.addressBox.FormattingEnabled = true;
-            this.addressBox.Location = new System.Drawing.Point(26, 27);
-            this.addressBox.Name = "addressBox";
-            this.addressBox.Size = new System.Drawing.Size(121, 21);
-            this.addressBox.TabIndex = 0;
-            // 
             // peopleGrid
             // 
             this.peopleGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -577,6 +578,14 @@
             this.peopleGrid.Name = "peopleGrid";
             this.peopleGrid.Size = new System.Drawing.Size(567, 197);
             this.peopleGrid.TabIndex = 1;
+            // 
+            // addressBox
+            // 
+            this.addressBox.FormattingEnabled = true;
+            this.addressBox.Location = new System.Drawing.Point(26, 27);
+            this.addressBox.Name = "addressBox";
+            this.addressBox.Size = new System.Drawing.Size(121, 21);
+            this.addressBox.TabIndex = 0;
             // 
             // Form2
             // 
@@ -658,5 +667,6 @@
         private System.Windows.Forms.DataGridView phyGrid;
         private System.Windows.Forms.DataGridView peopleGrid;
         private System.Windows.Forms.ComboBox addressBox;
+        private System.Windows.Forms.WebBrowser map;
     }
 }
