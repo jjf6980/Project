@@ -690,7 +690,9 @@ namespace Csharp_MecialSearch
 
 
             }
-
+            StringBuilder address = new StringBuilder();
+            address.Append(@"https://www.google.com/maps?q=" + locAddress1Change.Text + ",+" + locCityChange.Text + ",+" + locStateChange.Text + ",+" + locZipChange.Text);
+            map.Navigate(address.ToString());
 
         }
         }

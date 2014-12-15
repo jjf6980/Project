@@ -1,0 +1,10 @@
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\bin\Debug\Csharp_MecialSearch.exe.config
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\bin\Debug\Csharp_MecialSearch.exe
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\bin\Debug\Csharp_MecialSearch.pdb
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\obj\Debug\Project3.csprojResolveAssemblyReference.cache
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\obj\Debug\Csharp_MecialSearch.Form1.resources
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\obj\Debug\Csharp_MecialSearch.Form2.resources
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\obj\Debug\Csharp_MecialSearch.Properties.Resources.resources
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\obj\Debug\Project3.csproj.GenerateResource.Cache
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\obj\Debug\Csharp_MecialSearch.exe
+C:\Users\Justin\Desktop\School stuff\Client\project\Csharp_MecialSearch\Csharp_MecialSearch\Csharp_MecialSearch\obj\Debug\Csharp_MecialSearch.pdb

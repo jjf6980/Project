@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csharp_MecialSearch", "Csharp_MecialSearch\Csharp_MecialSearch.csproj", "{876FB9AE-7E5A-474D-987A-FB3763727E18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project3", "Csharp_MecialSearch\Project3.csproj", "{876FB9AE-7E5A-474D-987A-FB3763727E18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
